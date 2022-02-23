@@ -1,12 +1,29 @@
 extends layout 
 
 block content
-    .row 
-        .col-md-3 
-        .col-md-6.d-flex.flex-column.align-items-center
+    .row.mb-4 
+        .col-md-2
+        .col-md-8.d-flex.flex-column.align-items-center
             h1.mb-4.mt-4 Football Matching Platform 
             .align-self-end 
-                a.btn.btn-primary(href="/stadiums/save") Stadium 등록
-        .col-md-3
-
+                a.btn.btn-primary(href="/stadiums/save") Stadium 등록 
+        .col-md-2
     
+    .row 
+        .col-md-1 
+        .col-md-10
+            table.table.table-horizontal.table-bordered 
+                thead.thead-strong 
+                tr
+                    th 번호
+                    th 이름
+                    th 주소
+                    th 최종 수정일
+                tbody#tbody  
+                each stadium, idx in stadiums
+                    tr 
+                        td= idx+1
+                        td= stadium.name 
+                        td= stadium.location 
+                        td= stadium.modifiedDate
+        .col-md-1
